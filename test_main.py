@@ -65,7 +65,7 @@ def test_stats_unknown_code_404():
     assert r.status_code == 404
 
 
-def test_failed_redirect_is_not_counted():
+def test_unknown_code_is_404_for_both_redirect_and_stats():
     assert client.get("/missing-code", follow_redirects=False).status_code == 404
     assert client.get("/stats/missing-code").status_code == 404
 
